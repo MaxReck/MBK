@@ -1,12 +1,19 @@
 Folgende Kriterien könnten bei den Angaben in der GUI 
 beruecksichtigt werden:
 
-- Alter, Geschlecht, Bildung
-- Bundesland, Dorf(Einwohnerzahl<X) oder Stadt (Einwohnerzahl>X)
+- Alter
+- Geschlecht
+- Familienstand
+- Haushaltgröße
 
-- Erwerbsituation/Hauptätitgkeit
+- Erwerbsituation/Hauptätitgkeit: Arbeitsuchend, Arbeitsnehmer, selbstständig
+
+- Dorf(Einwohnerzahl<X) oder Stadt (Einwohnerzahl>X)
+- Haustiere: Ja, Nein
+- 
+------------------------------------------------------
 
 - Optional: Haushaltnettoeinkommen
+- Optional: Dorf(Einwohnerzahl<X) oder Stadt (Einwohnerzahl>X)
 
-- Haushaltgröße
-- Familienstand
+
