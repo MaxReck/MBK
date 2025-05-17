@@ -1,6 +1,8 @@
 Folgende Kriterien könnten bei den Angaben in der GUI 
 beruecksichtigt werden:
 
+Eingabeparameter: 
+
 - Alter
 - Geschlecht
 - Familienstand
@@ -8,12 +10,79 @@ beruecksichtigt werden:
 
 - Erwerbsituation/Hauptätitgkeit: Arbeitsuchend, Arbeitsnehmer, selbstständig
 
-- Dorf(Einwohnerzahl<X) oder Stadt (Einwohnerzahl>X)
-- Haustiere: Ja, Nein
+- Landleben - Dorf(Einwohnerzahl<X), Stadt - (Einwohnerzahl>X), Hybrid, egal
+
 - 
-------------------------------------------------------
+- Haustiere: Ja, Nein
+- -------------------------------------------------
 
 - Optional: Haushaltnettoeinkommen
-- Optional: Dorf(Einwohnerzahl<X) oder Stadt (Einwohnerzahl>X)
+            Allergien
 
+#############################################################################
 
+Quellen (versuche herausfinden wie die Daten anzuzapfen)
+
+Einwohnerzahl =	OpenStreetMap, Statistisches Bundesamt
+Luftqualität, Grünflächen = 	Sentinel-5P (ESA), Copernicus, Luftdaten.info
+Infrastruktur (Schulen, Jobs) = Google Maps API, Open Data der Städte
+Mietpreise = 	Immowelt API, Geoportal-Daten, Bundesanzeiger
+Allergiebelastung = Pollenflug-APIs, Umweltbundesamt
+
+##########################################################################
+
+Formel (Chat-Gpt) für Backend:
+
+Scoring-Modell- Funktion (von 0 bis 100): 
+
+Ort-Score = w1*Arbeitsmarkt + w2*Mietkosten + w3*Infrastruktur + w4*Grünflächen + w5*Haustierfreundlichkeit + ...
+
+Die Gewichte (w1–w5) variieren je nach Nutzerprofil:
+
+ - Familien mit Kindern → mehr Gewicht auf Schulen, Sicherheit, Parks
+
+- Selbstständige → mehr Gewicht auf Internetabdeckung, coworking
+
+- Haustiere → Parks, Tierärzte, wenig Verkehr
+
+##########################################################################
+
+Beispiel wie das später aussehen sollte:
+
+Nutzerprofil:
+
+* 30 Jahre, weiblich, Single
+
+* Selbstständig im Online-Marketing
+
+* Hat einen Hund
+
+* Einkommensstark
+
+* Möchte ländlich leben
+
+--> Auswahlkriterien:
+
+= Viele Grünflächen → über Sentinel & Google Maps Grünflächenanalyse
+
+=  Gute Internetverbindung → Breitbandatlas oder Netzanbieter
+
+= Ländlich (Einwohnerzahl < X)
+
+= Tierfreundlichkeit → Parks, Tierärzte, große Wohnungen
+
+--> Suchalgorithmus:
+
+Filtere Orte < 20.000 Einwohner
+
+Werte mit Scoring aus:
+
+Grünanteil (Sentinel)
+
+DSL-Verfügbarkeit
+
+Nähe zu Parks & Tierärzten (Google Maps API)
+
+Mietpreise passen zum Einkommen
+
+--> Ergebnis: Liste mit 5 Orten + Score + Begründung
