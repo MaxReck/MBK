@@ -21,7 +21,7 @@ if person["haustier"]:
     score += ort1["parks"] * 2
     score += ort1["tierärzte"] * 1.5
 
-if person["arbeitet_online"] and ort1["internet"] == "schnell":
+if person["arbeitet_online"] and ort1["internet"] == "mittel":
     score += 10
 
 if not person["mag_stadt"] and ort1["einwohner"] < 10000:
