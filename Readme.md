@@ -1,4 +1,4 @@
-Projektname:
+Projektname: Nexity
 
 To DO:
 
@@ -14,7 +14,7 @@ To DO:
 
 Already Done:
 
-- BOE: KriterienFuerWellbeing.txt erstellt, Readme.md erstellt
+- BOE: KriterienFuerWellbeing.txt erstellt, Readme.md erstellt, Struktur für Backend erstellt
 
 - KKS:
 
